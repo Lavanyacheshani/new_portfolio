@@ -1,38 +1,65 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
-import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/projects" },
-  { name: "Skills & Experience", href: "/skills-and-experience" },
-  { name: "Achievements & Certifications", href: "/achievements" },
-  { name: "Volunteering & Leadership", href: "/volunteering" },
+  { name: "Skills", href: "/skills" },
+  { name: "Achievements", href: "/achievements" },
+  { name: "Volunteering", href: "/volunteering" },
   { name: "Contact", href: "/contact" },
 ]
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
-    <header className="bg-gray-800 shadow-md">
+    <header
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-gray-900/80 backdrop-blur-md shadow-lg" : "bg-transparent"
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <Link href="/" className="text-2xl font-bold text-white">
-            Lavanya Cheshani
+            <motion.span
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600"
+            >
+              Lavanya Cheshani
+            </motion.span>
           </Link>
-          <nav className="hidden md:flex space-x-4">
-            {navItems.map((item) => (
-              <Link
+          <nav className="hidden md:flex space-x-8">
+            {navItems.map((item, index) => (
+              <motion.div
                 key={item.name}
-                href={item.href}
-                className="text-gray-300 hover:text-white transition-colors duration-300"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                {item.name}
-              </Link>
+                <Link
+                  href={item.href}
+                  className="text-gray-300 hover:text-white transition-colors duration-300 relative group"
+                >
+                  {item.name}
+                  <span className="absolute left-0 bottom-0 w-full h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                </Link>
+              </motion.div>
             ))}
           </nav>
           <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
@@ -40,27 +67,30 @@ export default function Header() {
           </button>
         </div>
       </div>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="md:hidden"
-        >
-          <nav className="px-4 pt-2 pb-4 space-y-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block text-gray-300 hover:text-white transition-colors duration-300"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-gray-900"
+          >
+            <nav className="flex flex-col items-center py-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-300 hover:text-white py-2 transition-colors duration-300"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }

@@ -160,43 +160,55 @@ header {
   visibility: visible;
 }
 
-/* Timeline styles */
-.timeline-dot {
-  position: absolute;
-  left: 0;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: var(--electric-blue);
-  transform: translateX(-50%);
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
-.timeline-line {
-  position: absolute;
-  left: 0;
-  top: 14px;
-  bottom: 0;
-  width: 2px;
-  background-color: var(--electric-blue);
-  transform: translateX(-50%);
+.animate-tilt {
+  animation: tilt 10s infinite linear;
 }
 
-/* Tab styles */
-.tabs-list {
-  display: inline-flex;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 4px;
-  border-radius: 8px;
+@keyframes tilt {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(1deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
 }
 
-.tab-trigger {
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
+/* Add a custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.tab-trigger[data-state="active"] {
-  background-color: var(--electric-blue);
-  color: white;
+::-webkit-scrollbar-track {
+  background: #1a202c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+/* Add a smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add a selection highlight color */
+::selection {
+  background: rgba(66, 153, 225, 0.5); /* Light blue */
+  color: #ffffff;
 }
 

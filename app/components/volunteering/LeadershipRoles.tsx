@@ -119,7 +119,6 @@ export default function LeadershipRoles() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" />
                   <div className="absolute bottom-4 left-4 flex items-center">
-                    <role.icon className={`w-8 h-8 ${role.color} mr-2`} />
                     
                   </div>
                 </div>
