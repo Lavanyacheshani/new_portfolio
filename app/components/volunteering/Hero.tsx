@@ -25,6 +25,7 @@ export default function Hero() {
       size: number
       speedX: number
       speedY: number
+      color: string
 
       constructor() {
         this.x = Math.random() * canvas.width
@@ -32,20 +33,22 @@ export default function Hero() {
         this.size = Math.random() * 5 + 1
         this.speedX = Math.random() * 3 - 1.5
         this.speedY = Math.random() * 3 - 1.5
+        this.color = `hsl(${Math.random() * 60 + 180}, 100%, 50%)`
       }
 
       update() {
         this.x += this.speedX
         this.y += this.speedY
 
-        if (this.size > 0.2) this.size -= 0.1
+        if (this.x > canvas.width) this.x = 0
+        else if (this.x < 0) this.x = canvas.width
+
+        if (this.y > canvas.height) this.y = 0
+        else if (this.y < 0) this.y = canvas.height
       }
 
       draw() {
-        ctx.fillStyle = "rgba(0, 255, 255, 0.8)"
-        ctx.strokeStyle = "rgba(0, 255, 255, 0.8)"
-        ctx.lineWidth = 2
-
+        ctx.fillStyle = this.color
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
         ctx.closePath()
@@ -64,27 +67,6 @@ export default function Hero() {
       for (let i = 0; i < particles.length; i++) {
         particles[i].update()
         particles[i].draw()
-
-        for (let j = i; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x
-          const dy = particles[i].y - particles[j].y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-
-          if (distance < 100) {
-            ctx.beginPath()
-            ctx.strokeStyle = "rgba(0, 255, 255, " + (1 - distance / 100) + ")"
-            ctx.lineWidth = 1
-            ctx.moveTo(particles[i].x, particles[i].y)
-            ctx.lineTo(particles[j].x, particles[j].y)
-            ctx.stroke()
-            ctx.closePath()
-          }
-        }
-
-        if (particles[i].size <= 0.2) {
-          particles.splice(i, 1)
-          i--
-        }
       }
       requestAnimationFrame(animate)
     }
@@ -108,24 +90,31 @@ export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       <canvas ref={canvasRef} className="absolute inset-0" />
-      <div className="relative z-10 text-center">
+      <div className="relative z-10 text-center px-4">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-6xl font-bold mb-6 text-glow"
+          className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600"
         >
-          Making an Impact: My Leadership & Volunteering Journey
+          Empowering Communities
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl mb-8 max-w-2xl mx-auto"
+          className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-300"
         >
-          Passionate about driving innovation, fostering learning, and contributing to impactful projects in the tech
-          community. Here's how I lead, volunteer, and create change!
+          Discover how my volunteering journey is making a positive impact and inspiring change
         </motion.p>
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="bg-purple-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-700 transition-colors duration-300"
+        >
+          Explore My Initiatives
+        </motion.button>
       </div>
     </section>
   )
