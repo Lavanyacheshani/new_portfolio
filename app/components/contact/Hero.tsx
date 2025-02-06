@@ -6,10 +6,10 @@ import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope, FaWhatsapp } from "react-i
 
 const socialLinks = [
   { icon: FaLinkedin, href: "https://www.linkedin.com/in/lavanya-cheshani" },
-  { icon: FaGithub, href: "https://github.com/lavanya-cheshani" },
-  { icon: FaTwitter, href: "https://twitter.com/lavanya_cheshani" },
-  { icon: FaEnvelope, href: "mailto:lavanya@example.com" },
-  { icon: FaWhatsapp, href: "https://wa.me/94XXXXXXXXX" },
+  { icon: FaGithub, href: "https://github.com/Lavanyacheshani" },
+  { icon: FaTwitter, href: "https://x.com/lavanyacheshani" },
+  { icon: FaEnvelope, href: "mailto:lavanyacheshani5@gmail.com" },
+  { icon: FaWhatsapp, href: "https://wa.me/94701666202" }, // Replace XXXXXXXXX with your phone number
 ]
 
 export default function Hero() {

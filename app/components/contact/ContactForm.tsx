@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
-import type React from "react" // Added import for React
+import type React from "react"
 
 export default function ContactForm() {
   const [name, setName] = useState("")
@@ -19,13 +19,11 @@ export default function ContactForm() {
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSending(true)
-    // Simulate sending message
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    await new Promise((resolve) => setTimeout(resolve, 2000)) // Simulating API call
     setIsSending(false)
     setName("")
     setEmail("")
     setMessage("")
-    // Here you would typically send the message to your backend
   }
 
   const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -85,7 +83,25 @@ export default function ContactForm() {
           )}
         </Button>
       </form>
+
+      {/* Social Media Links */}
+      <div className="mt-6 flex justify-center gap-4 text-gray-400">
+        <a href="https://x.com/lavanyacheshani" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+          Twitter
+        </a>
+        <a href="mailto:lavanyacheshani5@gmail.com" className="hover:text-white">
+          Email
+        </a>
+        <a href="https://www.linkedin.com/in/lavanya-cheshani" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+          LinkedIn
+        </a>
+        <a href="https://github.com/Lavanyacheshani" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+          GitHub
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100094059652800" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+          Facebook
+        </a>
+      </div>
     </motion.div>
   )
 }
-

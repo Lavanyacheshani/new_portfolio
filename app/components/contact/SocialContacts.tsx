@@ -13,25 +13,25 @@ const socialContacts = [
   {
     title: "GitHub",
     icon: FaGithub,
-    link: "https://github.com/lavanya-cheshani",
+    link: "https://github.com/Lavanyacheshani",
     description: "Check out my projects and contributions",
   },
   {
     title: "Twitter",
     icon: FaTwitter,
-    link: "https://twitter.com/lavanya_cheshani",
+    link: "https://x.com/lavanyacheshani",
     description: "Follow me for tech insights and updates",
   },
   {
     title: "Email",
     icon: FaEnvelope,
-    link: "mailto:lavanya@example.com",
+    link: "mailto:lavanyacheshani5@gmail.com",
     description: "Send me an email directly",
   },
   {
     title: "WhatsApp",
     icon: FaWhatsapp,
-    link: "https://wa.me/94XXXXXXXXX",
+    link: "https://wa.me/947XXXXXXXX",
     description: "Message me on WhatsApp",
   },
 ]

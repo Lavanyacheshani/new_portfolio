@@ -11,12 +11,12 @@ export default function Contact() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl font-bold mb-12 text-center"
+          className="text-4xl font-bold mb-12 text-center text-white"
         >
           Let's Connect
         </motion.h2>
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xl mb-8">
+          <p className="text-xl mb-8 text-gray-300">
             I'm always open to new opportunities, collaborations, or just a friendly chat about AI and technology. Feel
             free to reach out!
           </p>
@@ -26,17 +26,36 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex justify-center space-x-6 mb-8"
           >
-            <a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">
+            <a
+              href="https://github.com/Lavanyacheshani"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-gray-300 hover:text-white transition-colors duration-300"
+            >
               <Github className="w-8 h-8" />
             </a>
-            <a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">
+            <a
+              href="https://www.linkedin.com/in/lavanya-cheshani"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-gray-300 hover:text-white transition-colors duration-300"
+            >
               <Linkedin className="w-8 h-8" />
             </a>
-            <a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">
+            <a
+              href="https://x.com/lavanyacheshani"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter (X)"
+              className="text-gray-300 hover:text-white transition-colors duration-300"
+            >
               <Twitter className="w-8 h-8" />
             </a>
             <a
               href="mailto:lavanyacheshani5@gmail.com"
+              aria-label="Email"
               className="text-gray-300 hover:text-white transition-colors duration-300"
             >
               <Mail className="w-8 h-8" />
@@ -47,7 +66,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 shadow-lg"
           >
             Get in Touch
           </motion.a>
@@ -56,4 +75,3 @@ export default function Contact() {
     </section>
   )
 }
-
