@@ -11,7 +11,6 @@ export default function VolunteeringPage() {
       <LeadershipRoles />
       <VolunteeringProjects />
       <Timeline />
-      <Testimonials />
     </main>
   )
 }

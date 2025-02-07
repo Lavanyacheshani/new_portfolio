@@ -10,7 +10,6 @@ export default function ProjectsPage() {
       <Hero />
       <ProjectGallery />
       <FeaturedProjects />
-      <CaseStudies />
       <FutureProjects />
     </main>
   )

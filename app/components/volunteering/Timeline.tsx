@@ -4,12 +4,11 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
 
 const timelineEvents = [
-  { year: 2022, event: "Started journey in tech volunteering" },
-  { year: 2023, event: "Took on first leadership role in IEEE WIE" },
-  { year: 2023, event: "Organized Codemania V4.0" },
-  { year: 2024, event: "Became Regional Liaison for IEEE CS SYP" },
-  { year: 2024, event: "Led Altium Workshop initiative" },
-  { year: 2025, event: "Future goals in tech community leadership" },
+  { event: "Started volunteering as an IEEE member at university - Ideanix project" },
+  { event: "Selected as IEEE WIE Assistant Treasurer at SLTC" },
+  { event: "Conducted multiple projects as IEEE WIE Assistant Treasurer" },
+  { event: "Selected as IEEE Sri Lanka SAC Coordinator Member" },
+  { event: "Selected as IEEE Global Section IEEE CS SYP Coordinator" },
 ]
 
 export default function Timeline() {

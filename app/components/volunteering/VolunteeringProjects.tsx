@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
@@ -12,66 +11,52 @@ const projects = [
     title: "Altium Workshop",
     category: "University",
     role: "Chairperson (IEEE WIE)",
-    status: "Ongoing",
-    description: "Organized a nationwide workshop on Altium electronics design in collaboration with Altium Education.",
-    image: "/projects/altium-workshop.jpg",
+    status: "Completed",
+    description: "Organized a nationwide workshop on Altium electronics design in collaboration with Altium Education."
   },
-  {
-    title: "ColourHER World",
-    category: "University",
-    role: "Assistant Treasurer (IEEE WIE)",
-    status: "Ongoing",
-    description: "Empowering women in technology through a series of workshops and mentoring sessions.",
-    image: "/projects/colourher-world.jpg",
-  },
+  
   {
     title: "Codemania V4.0",
     category: "University",
     role: "Deputy Head of Programming Team (IEEE CS)",
     status: "Completed",
-    description: "Led the programming team in organizing a national-level coding competition.",
-    image: "/projects/codemania.jpg",
+    description: "Led the programming team in organizing a national-level coding competition."
   },
   {
     title: "InspiHer 2.0",
     category: "University",
     role: "Project Treasurer (IEEE WIE)",
     status: "Completed",
-    description: "Managed finances for a women-in-tech inspiration series featuring industry leaders.",
-    image: "/projects/inspiher.jpg",
-  },
-  {
-    title: "Devthon 1.0",
-    category: "Collaboration",
-    role: "Secretary Team (SLTC & UOM)",
-    status: "Completed",
-    description: "Coordinated a joint hackathon between SLTC and University of Moratuwa.",
-    image: "/projects/devthon.jpg",
+    description: "Managed finances for a women-in-tech inspiration series featuring industry leaders."
   },
   {
     title: "DevNexa'23",
     category: "Collaboration",
     role: "Project Coordinator & Treasurer (SLTC, OUSL & UWU)",
     status: "Completed",
-    description: "Coordinated a multi-university tech conference and managed its finances.",
-    image: "/projects/devnexa.jpg",
+    description: "Coordinated a multi-university tech conference and managed its finances."
   },
   {
     title: "TechX",
     category: "National",
     role: "Financial Team Member (IEEE CS)",
     status: "Completed",
-    description: "Managed finances for a national-level technology exhibition and competition.",
-    image: "/projects/techx.jpg",
+    description: "Managed finances for a national-level technology exhibition and competition."
   },
   {
     title: "Build with AI",
     category: "National",
     role: "Team Member (GDG Sri Lanka)",
-    status: "Ongoing",
-    description: "Contributing to a nationwide initiative to promote AI development and applications.",
-    image: "/projects/build-with-ai.jpg",
+    status: " Completed",
+    description: "Contributing to a nationwide initiative to promote AI development and applications."
   },
+  {
+    title: "IdeaniX",
+    category: "University",
+    role: "Team Member (IEEE CS)",
+    status: "Completed",
+    description: "Contributing to a innovation idea project."
+  }
 ]
 
 export default function VolunteeringProjects() {
@@ -92,12 +77,17 @@ export default function VolunteeringProjects() {
         </motion.h2>
         <Tabs defaultValue="All" className="mb-8">
           <TabsList className="grid w-full grid-cols-4 bg-gray-800">
-            {["All", "University", "Collaboration", "National"].map((category) => (
+            {[
+              "All", 
+              "University", 
+              "Collaboration", 
+              "National"
+            ].map((category) => (
               <TabsTrigger
                 key={category}
                 value={category}
                 onClick={() => setActiveTab(category)}
-                className="data-[state=active]:bg-electric-blue data-[state=active]:text-white"
+                className={`data-[state=active]:bg-electric-blue data-[state=active]:text-white ${activeTab === category ? 'bg-electric-blue text-white' : ''}`}
               >
                 {category}
               </TabsTrigger>
@@ -124,13 +114,6 @@ function ProjectCard({ project }) {
   return (
     <Card className="bg-gray-800 hover:bg-gray-700 transition-all duration-300">
       <CardHeader>
-        <Image
-          src={project.image || "/placeholder.svg"}
-          alt={project.title}
-          width={300}
-          height={200}
-          className="rounded-lg mb-4"
-        />
         <CardTitle className="text-xl font-bold text-electric-blue">{project.title}</CardTitle>
         <CardDescription>{project.role}</CardDescription>
       </CardHeader>
@@ -141,4 +124,3 @@ function ProjectCard({ project }) {
     </Card>
   )
 }
-

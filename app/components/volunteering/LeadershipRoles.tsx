@@ -81,7 +81,7 @@ const leadershipRoles = [
     details:
       "Assisted in identifying and pursuing partnership opportunities. Helped in organizing events to promote AIESEC's programs and increase student participation.",
     achievements: ["Secured 3 new partnerships", "Increased student sign-ups by 25%"],
-    image: "/images/aiesec-event.jpg",
+    image: "/images/aiesec.jpg",
     category: "Leadership",
     color: "text-orange-500",
   },

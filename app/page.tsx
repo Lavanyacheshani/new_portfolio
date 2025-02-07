@@ -23,7 +23,6 @@ export default function Home() {
       <Services />
       <About />
       <ExperienceEducation />
-      <Testimonials />
       <Contact />
     </main>
   )

@@ -11,7 +11,6 @@ const taglines = [
   "Transforming ideas into AI-powered realities",
   "Bridging the gap between humans and AI",
   "Innovating at the intersection of software engineering",
-  "Crafting intelligent solutions for tomorrow's challenges",
 ]
 
 export default function Hero() {
@@ -23,6 +22,22 @@ export default function Hero() {
     }, 5000)
     return () => clearInterval(interval)
   }, [])
+
+  // Function to scroll to Projects section
+  const handleViewWork = () => {
+    const projectSection = document.getElementById("projects")
+    if (projectSection) {
+      projectSection.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  // Function to download CV
+  const handleDownloadCV = () => {
+    const link = document.createElement("a")
+    link.href = "/cv.pdf"
+    link.download = "Lavanya_Cheshani_CV.pdf"
+    link.click()
+  }
 
   return (
     <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden bg-gradient-to-br from-blue-900 to-purple-900">
@@ -53,14 +68,6 @@ export default function Hero() {
                 className="rounded-lg border-4 border-blue-500 shadow-lg hover:shadow-blue-500/50 transition-all duration-300"
               />
             </motion.div>
-
-            {/* Gradient Hover Effect */}
-            <motion.div
-              className="absolute -inset-0.5 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 animate-tilt"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.75 }}
-              transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
-            ></motion.div>
           </div>
         </motion.div>
 
@@ -92,6 +99,7 @@ export default function Hero() {
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
             <Button
+              onClick={handleViewWork}
               variant="default"
               size="lg"
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105"
@@ -99,6 +107,7 @@ export default function Hero() {
               View My Work
             </Button>
             <Button
+              onClick={handleDownloadCV}
               variant="outline"
               size="lg"
               className="border-2 border-purple-500 text-purple-400 hover:bg-purple-500/10 font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105"

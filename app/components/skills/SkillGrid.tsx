@@ -14,6 +14,8 @@ const skillCategories = [
       { name: "Java", icon: "java" },
       { name: "C++", icon: "cpp" },
       { name: "Go", icon: "go" },
+      { name: "Rust", icon: "rust" },
+      { name: "Dart", icon: "dart" },
     ],
   },
   {
@@ -25,6 +27,7 @@ const skillCategories = [
       { name: "Angular", icon: "angular" },
       { name: "Tailwind CSS", icon: "tailwind" },
       { name: "Sass", icon: "sass" },
+      { name: "Flutter", icon: "flutter" },
     ],
   },
   {
@@ -36,6 +39,8 @@ const skillCategories = [
       { name: "Flask", icon: "flask" },
       { name: "Spring Boot", icon: "spring" },
       { name: "GraphQL", icon: "graphql" },
+      { name: "FastAPI", icon: "fastapi" },
+      { name: "NestJS", icon: "nestjs" },
     ],
   },
   {
@@ -47,10 +52,11 @@ const skillCategories = [
       { name: "Redis", icon: "redis" },
       { name: "Firebase", icon: "firebase" },
       { name: "Supabase", icon: "supabase" },
+      { name: "Neo4j", icon: "neo4j" },
     ],
   },
   {
-    name: "DevOps",
+    name: "DevOps & CI/CD",
     skills: [
       { name: "Docker", icon: "docker" },
       { name: "Kubernetes", icon: "kubernetes" },
@@ -58,6 +64,21 @@ const skillCategories = [
       { name: "Google Cloud", icon: "gcp" },
       { name: "Azure", icon: "azure" },
       { name: "Jenkins", icon: "jenkins" },
+      { name: "GitHub Actions", icon: "githubactions" },
+      { name: "GitLab CI/CD", icon: "gitlab" },
+      { name: "Terraform", icon: "terraform" },
+    ],
+  },
+  {
+    name: "AI/ML & Data Science",
+    skills: [
+      { name: "TensorFlow", icon: "tensorflow" },
+      { name: "PyTorch", icon: "pytorch" },
+      { name: "Scikit-Learn", icon: "scikitlearn" },
+      { name: "Pandas", icon: "pandas" },
+      { name: "NumPy", icon: "numpy" },
+      { name: "OpenCV", icon: "opencv" },
+      { name: "Hugging Face", icon: "huggingface" },
     ],
   },
   {
@@ -69,6 +90,7 @@ const skillCategories = [
       { name: "Figma", icon: "figma" },
       { name: "Postman", icon: "postman" },
       { name: "Jira", icon: "jira" },
+      { name: "Notion", icon: "notion" },
     ],
   },
 ]
@@ -113,4 +135,3 @@ function SkillCard({ skill }) {
     </motion.div>
   )
 }
-
