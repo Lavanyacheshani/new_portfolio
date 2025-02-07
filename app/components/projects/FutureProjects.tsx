@@ -6,7 +6,7 @@ import { useChat } from "ai/react"
 
 export default function FutureProjects() {
   const [chatVisible, setChatVisible] = useState(false)
-  const { messages, input, handleInput, handleSubmit } = useChat()
+  const { messages, input, handleInputChange, handleSubmit } = useChat()
 
   return (
     <section className="py-20 bg-gray-900">
@@ -30,7 +30,7 @@ export default function FutureProjects() {
           </ul>
           <button
             onClick={() => setChatVisible(!chatVisible)}
-            className="px-6 py-3 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-colors duration-300 neon-glow"
+            className="px-6 py-3 bg-purple-400 text-white rounded-full hover:bg-purple-500 transition-colors duration-300 neon-glow"
           >
             {chatVisible ? "Hide AI Chatbot" : "Ask About My Future Projects"}
           </button>
@@ -53,7 +53,7 @@ export default function FutureProjects() {
               <input
                 type="text"
                 value={input}
-                onChange={handleInput}
+                onChange={handleInputChange}
                 placeholder="Ask about my future projects..."
                 className="flex-grow px-4 py-2 bg-gray-700 text-white rounded-l-lg focus:outline-none"
               />

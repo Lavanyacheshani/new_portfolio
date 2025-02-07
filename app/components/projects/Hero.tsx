@@ -43,9 +43,6 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex justify-center space-x-4"
         >
-          <button className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 neon-glow">
-            Explore My Projects
-          </button>
           
         </motion.div>
       </div>

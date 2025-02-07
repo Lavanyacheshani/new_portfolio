@@ -107,14 +107,7 @@ export default function Hero() {
         >
           Discover how my volunteering journey is making a positive impact and inspiring change
         </motion.p>
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-purple-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-700 transition-colors duration-300"
-        >
-          Explore My Initiatives
-        </motion.button>
+        
       </div>
     </section>
   )

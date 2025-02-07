@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"  // ✅ Import Link
 import { useState, useEffect } from "react"
 import { TypeAnimation } from "react-type-animation"
 import { Button } from "@/components/ui/button"
@@ -22,14 +23,6 @@ export default function Hero() {
     }, 5000)
     return () => clearInterval(interval)
   }, [])
-
-  // Function to scroll to Projects section
-  const handleViewWork = () => {
-    const projectSection = document.getElementById("projects")
-    if (projectSection) {
-      projectSection.scrollIntoView({ behavior: "smooth" })
-    }
-  }
 
   // Function to download CV
   const handleDownloadCV = () => {
@@ -98,14 +91,15 @@ export default function Hero() {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
-            <Button
-              onClick={handleViewWork}
-              variant="default"
-              size="lg"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105"
-            >
-              View My Work
-            </Button>
+            <Link href="/projects" passHref>
+              <Button
+                variant="default"
+                size="lg"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105"
+              >
+                View My Work
+              </Button>
+            </Link>
             <Button
               onClick={handleDownloadCV}
               variant="outline"
