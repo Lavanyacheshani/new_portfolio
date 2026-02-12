@@ -147,7 +147,7 @@ function AchievementCard({ item, index }: { item: any, index: number }) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative h-[600px] rounded-[3rem] bg-[#0c0c0c] border border-white/5 overflow-hidden hover:border-white/10 transition-all duration-700 hover:shadow-2xl hover:shadow-black"
+      className="group relative min-h-[550px] md:h-[600px] rounded-[2.5rem] md:rounded-[3rem] bg-[#0c0c0c] border border-white/5 overflow-hidden hover:border-white/10 transition-all duration-700 hover:shadow-2xl hover:shadow-black"
     >
       {/* Background Glow */}
       <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-1000`} />
@@ -176,18 +176,18 @@ function AchievementCard({ item, index }: { item: any, index: number }) {
       </div>
 
       {/* Content */}
-      <div className="relative p-12 flex flex-col justify-between h-3/5 z-10">
+      <div className="relative p-8 md:p-12 flex flex-col justify-between min-h-[350px] md:h-3/5 z-10">
         <div>
           <div className="flex items-center gap-3 mb-6">
             <div className="p-3 rounded-2xl bg-white/5 border border-white/5 group-hover:border-white/10 transition-colors">
               <item.icon className={`w-5 h-5 bg-clip-text text-transparent bg-gradient-to-br ${item.color}`} />
             </div>
-            <span className="text-[10px] font-black tracking-[0.4em] text-gray-500 uppercase">{item.subtitle}</span>
+            <span className="text-[9px] md:text-[10px] font-black tracking-[0.2em] md:tracking-[0.4em] text-gray-500 uppercase">{item.subtitle}</span>
           </div>
-          <h3 className="text-3xl md:text-4xl font-black text-white tracking-tighter mb-6 leading-none group-hover:text-blue-400 transition-colors">
+          <h3 className="text-2xl md:text-4xl font-black text-white tracking-tighter mb-4 md:mb-6 leading-none group-hover:text-blue-400 transition-colors">
             {item.title}
           </h3>
-          <p className="text-gray-500 text-sm leading-relaxed font-medium group-hover:text-gray-300 transition-colors mb-8">
+          <p className="text-gray-500 text-xs md:text-sm leading-relaxed font-medium group-hover:text-gray-300 transition-colors mb-6 md:mb-8">
             {item.description}
           </p>
 
