@@ -182,7 +182,14 @@ function AchievementCard({ item, index }: { item: any, index: number }) {
             <div className="p-3 rounded-2xl bg-white/5 border border-white/5 group-hover:border-white/10 transition-colors">
               <item.icon className={`w-5 h-5 bg-clip-text text-transparent bg-gradient-to-br ${item.color}`} />
             </div>
-            <span className="text-[9px] md:text-[10px] font-black tracking-[0.2em] md:tracking-[0.4em] text-gray-500 uppercase">{item.subtitle}</span>
+            <span className="text-[9px] md:text-[10px] font-black tracking-[0.1em] md:tracking-[0.4em] text-gray-500 uppercase">
+              {item.subtitle.includes("FOR ENGINEERS") ? (
+                <>
+                  {item.subtitle.replace("FOR ENGINEERS", "")}
+                  <span className="hidden md:inline">FOR ENGINEERS</span>
+                </>
+              ) : item.subtitle}
+            </span>
           </div>
           <h3 className="text-2xl md:text-4xl font-black text-white tracking-tighter mb-4 md:mb-6 leading-none group-hover:text-blue-400 transition-colors">
             {item.title}

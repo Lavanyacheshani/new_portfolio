@@ -102,20 +102,25 @@ function TimelineEntry({ event, index }: { event: any, index: number }) {
         initial={{ opacity: 0, x: isEven ? -50 : 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className={`w-full md:w-5/12 ${isEven ? 'md:text-right md:pr-16' : 'md:text-left md:pl-16'}`}
+        className={`w-full md:w-5/12 pl-12 md:pl-0 ${isEven ? 'md:text-right md:pr-16' : 'md:text-left md:pl-16'}`}
       >
         <div className="relative group">
           <span className="text-4xl md:text-6xl font-black text-white/5 absolute -top-10 left-0 md:left-auto md:right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
             {event.year}
           </span>
-          <h3 className="text-2xl md:text-3xl font-black text-white tracking-widest uppercase mb-4 group-hover:text-blue-400 transition-colors">
-            {event.title}
+          <h3 className="text-xl md:text-3xl font-black text-white tracking-widest uppercase mb-4 group-hover:text-blue-400 transition-colors">
+            {event.title === "ENGINEERING ODYSSEY INITIATED" ? (
+              <>
+                <span className="hidden md:inline">ENGINEERING </span>
+                ODYSSEY INITIATED
+              </>
+            ) : event.title}
           </h3>
           <p className="text-gray-500 font-medium text-sm leading-relaxed mb-6">
             {event.description}
           </p>
           <div className={`flex flex-wrap gap-2 ${isEven ? 'md:justify-end' : 'md:justify-start'}`}>
-            {event.tags.map(tag => (
+            {event.tags.map((tag: string) => (
               <span key={tag} className="px-3 py-1 rounded-full bg-white/5 border border-white/5 text-[8px] font-black text-gray-700 uppercase tracking-widest">{tag}</span>
             ))}
           </div>
