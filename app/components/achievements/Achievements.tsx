@@ -147,13 +147,13 @@ function AchievementCard({ item, index }: { item: any, index: number }) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative min-h-[550px] md:h-[600px] rounded-[2.5rem] md:rounded-[3rem] bg-[#0c0c0c] border border-white/5 overflow-hidden hover:border-white/10 transition-all duration-700 hover:shadow-2xl hover:shadow-black"
+      className="group relative flex flex-col h-auto md:h-[600px] rounded-[2.5rem] md:rounded-[3rem] bg-[#0c0c0c] border border-white/5 overflow-hidden hover:border-white/10 transition-all duration-700 hover:shadow-2xl hover:shadow-black"
     >
       {/* Background Glow */}
       <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-1000`} />
 
       {/* Visual Header */}
-      <div className="relative h-2/5 overflow-hidden">
+      <div className="relative h-48 md:h-2/5 shrink-0 overflow-hidden">
         <Image
           src={item.image || "/placeholder.svg"}
           alt={item.title}
@@ -176,7 +176,7 @@ function AchievementCard({ item, index }: { item: any, index: number }) {
       </div>
 
       {/* Content */}
-      <div className="relative p-8 md:p-12 flex flex-col justify-between min-h-[350px] md:h-3/5 z-10">
+      <div className="relative p-8 md:p-12 flex flex-col justify-between flex-grow md:h-3/5 z-10">
         <div>
           <div className="flex items-center gap-3 mb-6">
             <div className="p-3 rounded-2xl bg-white/5 border border-white/5 group-hover:border-white/10 transition-colors">
