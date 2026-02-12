@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  --gold-500: #ffd700;
+  --electric-blue: #00ffff;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+.bg-gradient-glow {
+  background: linear-gradient(45deg, #4a00e0, #8e2de2);
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.neon-glow {
+  box-shadow: 0 0 10px rgba(74, 0, 224, 0.5), 0 0 20px rgba(142, 45, 226, 0.5);
+}
+
+.hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+/* Add styles for the header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+@media (max-width: 768px) {
+  header nav {
+    background-color: rgba(31, 41, 55, 0.95);
+    backdrop-filter: blur(5px);
+  }
+}
+
+/* Add styles for the Projects page */
+.project-card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+.case-study-image {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.case-study-image:hover {
+  opacity: 0.8;
+}
+
+/* Add styles for the Achievements page */
+.achievement-card {
+  transition: all 0.3s ease-in-out;
+}
+
+.achievement-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.certification-card {
+  transition: all 0.3s ease-in-out;
+}
+
+.certification-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Add styles for the Skills page */
+.hover\:shadow-neon {
+  /* Corrected class name */
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.dark {
+  background-color: #1a202c;
+  color: #e2e8f0;
+}
+
+.dark .bg-gray-800 {
+  background-color: #2d3748;
+}
+
+.dark .text-gray-300 {
+  color: #cbd5e0;
+}
+
+.dark .hover\:shadow-neon {
+  /* Corrected class name */
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+/* Add styles for glassmorphism effect */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+/* Adjust tooltip behavior */
+.tooltip-trigger {
+  position: relative;
+}
+
+.tooltip-content {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.tooltip-trigger:hover .tooltip-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.animate-tilt {
+  animation: tilt 10s infinite linear;
+}
+
+@keyframes tilt {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(1deg);
+  }
+
+  75% {
+    transform: rotate(-1deg);
+  }
+}
+
+/* Add a custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a202c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+/* Add a smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add a selection highlight color */
+::selection {
+  background: rgba(66, 153, 225, 0.5);
+  /* Light blue */
+  color: #ffffff;
+}
+
+@keyframes shine {
+  from {
+    left: -100%;
+    top: -100%;
+  }
+
+  to {
+    left: 100%;
+    top: 100%;
+  }
+}
+
+.animate-shine {
+  animation: shine 1.5s infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
