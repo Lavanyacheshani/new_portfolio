@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Sparkles } from "lucide-react"
+import { Menu, X, Sparkles, Github, Linkedin, Twitter } from "lucide-react"
 import { usePathname } from "next/navigation"
 
 const navItems = [
@@ -170,12 +170,27 @@ export default function Header() {
                 ))}
               </nav>
 
-              <div className="mt-auto pt-12 border-t border-white/10">
-                <p className="text-[10px] font-bold tracking-[0.3em] text-gray-500 uppercase mb-4">Let's Connect</p>
+              <div className="mt-auto pt-8 border-t border-white/10">
+                <a
+                  href="mailto:lavanyacheshani5@gmail.com"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-white text-black text-sm font-black uppercase tracking-widest mb-8 hover:bg-blue-400 hover:text-white transition-all active:scale-95 duration-300"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Hire Me
+                  <Sparkles className="w-4 h-4" />
+                </a>
+
+                <p className="text-[10px] font-black tracking-[0.4em] text-gray-500 uppercase mb-6">Let's Connect</p>
                 <div className="flex gap-4">
-                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10" />
-                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10" />
-                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10" />
+                  <a href="https://github.com/Lavanyacheshani" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-300">
+                    <Github size={20} />
+                  </a>
+                  <a href="https://www.linkedin.com/in/lavanya-cheshani" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-300">
+                    <Linkedin size={20} />
+                  </a>
+                  <a href="https://x.com/lavanyacheshani" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-300">
+                    <Twitter size={20} />
+                  </a>
                 </div>
               </div>
             </motion.div>
